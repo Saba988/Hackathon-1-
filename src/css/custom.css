@@ -1,0 +1,262 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Cyberpunk / Robotics Theme */
+:root {
+  /* Electric Blue / Cyan Primary */
+  --ifm-color-primary: #00aaff;
+  --ifm-color-primary-dark: #0099e6;
+  --ifm-color-primary-darker: #0090d9;
+  --ifm-color-primary-darkest: #0077b3;
+  --ifm-color-primary-light: #1ab7ff;
+  --ifm-color-primary-lighter: #33c2ff;
+  --ifm-color-primary-lightest: #66d5ff;
+  
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Force Dark Backgrounds even in "Light" mode if the user hasn't toggled yet, 
+     though we set defaultMode to dark in config. This ensures the 'silver' is gone. */
+  --hero-bg-color: #0b0c10;
+  --hero-text-color: #ffffff;
+  
+  /* Tech Font for Taglines */
+  --ifm-font-family-monospace: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+/* Dark Mode - The Real "Robotics" Mode */
+[data-theme='dark'] {
+  /* Neon Cyan for pop against dark background */
+  --ifm-color-primary: #00f3ff;
+  --ifm-color-primary-dark: #00dbd6;
+  --ifm-color-primary-darker: #00cfca;
+  --ifm-color-primary-darkest: #00aaa6;
+  --ifm-color-primary-light: #26f5ff;
+  --ifm-color-primary-lighter: #4df7ff;
+  --ifm-color-primary-lightest: #80faff;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  --ifm-background-color: #0b0c10; /* Deep dark blue/black */
+  --ifm-background-surface-color: #1f2833; /* Slightly lighter for cards */
+  
+  --hero-bg-color: #0b0c10;
+  --hero-text-color: #ffffff;
+}
+
+/* ------------------
+   ANIMATIONS
+   ------------------ */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Section Styling */
+.hero {
+  background-color: var(--hero-bg-color);
+  color: var(--hero-text-color);
+  padding: 6rem 0; /* More breathing room */
+  position: relative;
+  overflow: hidden;
+  
+  /* Starfield / Grid Background */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-position: center center;
+  
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero__title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  text-transform: uppercase; /* More robotic */
+}
+
+/* Gradient Text Effect for Title */
+.text--gradient {
+  background: linear-gradient(to right, #00f3ff, #bc13fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* Optional: Text Shadow glow */
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.hero__subtitle {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary-lightest);
+  margin-bottom: 48px;
+  letter-spacing: 1px;
+  
+  /* Typewriter cursor effect */
+  border-right: 2px solid var(--ifm-color-primary);
+  display: inline-block;
+  padding-right: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: var(--ifm-color-primary); }
+}
+
+/* Card Styling Updates */
+.card {
+  border-radius: 16px; /* Softer corners for cartoonish vibe */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  background-color: rgba(31, 40, 51, 0.4); /* Glassy */
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Button Glow */
+.button--secondary {
+  transition: all 0.3s ease;
+  border-radius: 50px; /* Capsule shape */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: transparent;
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary);
+  color: #000;
+  box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Apply float animation to feature SVGs */
+.featureSvg {
+  animation: float 6s ease-in-out infinite;
+  max-width: 150px; /* Constrain width */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 16px; /* Add some space below the SVG */
+}
+
+/* ------------------
+   BOOK / DOCS STYLING
+   ------------------ */
+
+/* Markdown Container */
+.markdown {
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-link-color: var(--ifm-color-primary-light);
+}
+
+/* H1 - Gradient & Professional */
+.markdown h1:first-child {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--ifm-color-primary-light), #bc13fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block; /* Required for gradient on text to work properly in some contexts */
+}
+
+/* H2 - Section Dividers */
+.markdown h2 {
+  color: var(--ifm-color-primary-lightest);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+  font-family: var(--ifm-font-family-monospace); /* Tech feel for section headers */
+  letter-spacing: 0.5px;
+}
+
+/* H3 - Sub-sections */
+.markdown h3 {
+  color: #fff; /* Clean white for readability */
+  margin-top: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.markdown h3::before {
+  content: '>';
+  color: var(--ifm-color-primary);
+  margin-right: 8px;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* Inline Code - Terminal Style */
+.markdown code {
+  background-color: rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  color: var(--ifm-color-primary-lightest);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* Blockquotes - System Alerts */
+.markdown blockquote {
+  background-color: rgba(31, 40, 51, 0.5);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem;
+  color: #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Lists */
+.markdown ul li {
+  position: relative;
+}
+
+/* Admonitions (Note, Tip, Info) overrides for Neon feel */
+.alert {
+  border: 1px solid transparent;
+  backdrop-filter: blur(5px);
+}
+
+.alert--info {
+  background-color: rgba(0, 243, 255, 0.1);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-lightest);
+}
+
+.alert--warning {
+  background-color: rgba(255, 186, 0, 0.1);
+  border-color: #ffba00;
+  color: #ffd561;
+}
+
+.alert--danger {
+  background-color: rgba(250, 56, 62, 0.1);
+  border-color: #fa383e;
+  color: #ff8084;
+}

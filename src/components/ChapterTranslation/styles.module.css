@@ -1,0 +1,84 @@
+.container {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.translateBtn {
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+  transition: all 0.3s ease;
+  font-family: var(--ifm-font-family-monospace);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.translateBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
+}
+
+.translationBox {
+  width: 100%;
+  background: rgba(20, 30, 40, 0.8);
+  border: 1px solid #3a7bd5;
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out;
+  direction: rtl; /* Important for Urdu/Arabic */
+  text-align: right;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #3a7bd5;
+  font-family: var(--ifm-font-family-monospace);
+  direction: ltr; /* Keep header LTR */
+}
+
+.content {
+  font-size: 1.1rem; /* Slightly larger for Urdu readability */
+  line-height: 1.8;
+  color: #e0e0e0;
+  font-family: 'Noto Nastaliq Urdu', 'Arial', sans-serif;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #3a7bd5;
+  font-style: italic;
+  direction: ltr;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.closeBtn:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
